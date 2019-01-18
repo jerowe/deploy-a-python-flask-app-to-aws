@@ -17,7 +17,7 @@ WORKDIR /home/flask/flask_app
 
 # Always save your environments in a conda env file. 
 # This makes it so much easier to fix your environment when you inadvertantly clobber it
-COPY environment.yml environment.yml
+COPY flask-app-environment.yml environment.yml
 RUN conda env create -f environment.yml
 RUN echo "alias l='ls -lah'" >> ~/.bashrc
 
@@ -35,5 +35,5 @@ ENV PATH /home/flask/.conda/envs/flask-app/bin:/opt/conda/bin:/usr/local/sbin:/u
 
 COPY . ./
 
-CMD ["/bin/bash", "-c", "/home/flask/finding_donors_flask_app/start_flask_app.sh"]
+CMD ["/bin/bash", "-c", "/home/flask/flask_app/start_flask_app.sh"]
 

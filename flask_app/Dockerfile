@@ -1,9 +1,9 @@
 FROM continuumio/miniconda3:4.5.11
 
-RUN apt-get update -y; apt-get upgrade -y
-
-# You don't technically need these, but I get kind of twitchy if I don't have vim installed
-RUN apt-get install -y vim-tiny vim-athena ssh
+# You don't technically need vim, but I like having it for debugging purposes
+RUN apt-get update -y; \
+    apt-get upgrade -y; \
+    apt-get install -y vim-tiny vim-athena
 
 # Add a user and switch, using the default root user is BAD
 RUN adduser --home /home/flask flask
